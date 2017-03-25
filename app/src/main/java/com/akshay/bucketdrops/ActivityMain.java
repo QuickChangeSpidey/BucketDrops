@@ -31,11 +31,17 @@ public class ActivityMain extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
+                showDialogAdd();
             }
         });
 
         setSupportActionBar(mToolbar);
         initBackgroundImage();
+    }
+
+    private void showDialogAdd() {
+        DialogAdd dialog = new DialogAdd();
+        dialog.show(getSupportFragmentManager(),"Add");
     }
 
     private void initBackgroundImage() {
