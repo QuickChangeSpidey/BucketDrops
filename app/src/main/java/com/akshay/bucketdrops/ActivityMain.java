@@ -10,26 +10,32 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+
 public class ActivityMain extends AppCompatActivity{
 
-    Toolbar mToolbar;
+
+    @BindView(R.id.btn_add)
     Button mButton;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
 
-    private View.OnClickListener mButtonPressListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-
-            Toast.makeText(getApplicationContext(),"Button Clicked", Toast.LENGTH_LONG).show();
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mButton = (Button) findViewById(R.id.btn_add);
-        mButton.setOnClickListener(mButtonPressListener);
+        ButterKnife.bind(this);
+
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
         setSupportActionBar(mToolbar);
         initBackgroundImage();
     }
