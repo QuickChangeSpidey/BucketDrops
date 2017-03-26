@@ -10,10 +10,12 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
+import com.akshay.bucketdrops.beans.Drop;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 /**
  * Created by akshay on 3/25/17.
@@ -40,9 +42,39 @@ public class DialogAdd extends DialogFragment {
     private View.OnClickListener mBtnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+
+            switch (view.getId())
+            {
+                case R.id.btn_add_it:
+                    addAction();
+                    break;
+
+
+            }
+
             dismiss();
         }
     };
+
+    private void addAction() {
+
+        String what = mInputWhat.getText().toString();
+        long now = System.currentTimeMillis();
+
+        Realm.init(getContext());
+
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().build();
+        Realm.setDefaultConfiguration(realmConfiguration);
+        Realm realm = Realm.getDefaultInstance();
+        Drop drop = new Drop(what,now,0,false);
+
+        realm.beginTransaction();
+        realm.copyToRealm(drop);
+        realm.commitTransaction();
+
+        realm.close();
+    }
+
 
     @Nullable
     @Override
@@ -56,6 +88,7 @@ public class DialogAdd extends DialogFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mBtnClose.setOnClickListener(mBtnClickListener);
+        mBtnAdd.setOnClickListener(mBtnClickListener);
     }
 
 
