@@ -2,6 +2,7 @@ package com.akshay.bucketdrops;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,9 @@ public class ActivityMain extends AppCompatActivity{
     Button mButton;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
+
+    @BindView(R.id.rv_drops)
+    RecyclerView mRecycler;
 
 
     @Override

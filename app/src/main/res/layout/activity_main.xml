@@ -14,6 +14,12 @@
         android:src="@drawable/background"
         android:layout_below="@+id/toolbar"
         android:id="@+id/iv_background"/>
+    
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rv_drops"
+        android:layout_below="@+id/toolbar"/>
 
     <include layout="@layout/empty_drops"></include>
 

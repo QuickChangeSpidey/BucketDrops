@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/et_drop"
         android:layout_below="@+id/tv_title"
-        android:inputType="number"
         android:hint="@string/hint_et_drop"
+        android:singleLine="true"
         android:padding="16dp"/>
 
     <DatePicker
