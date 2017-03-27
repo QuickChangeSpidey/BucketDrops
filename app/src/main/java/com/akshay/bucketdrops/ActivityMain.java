@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.akshay.bucketdrops.Adapters.AdapterDrops;
 import com.akshay.bucketdrops.beans.Drop;
+import com.akshay.bucketdrops.widgets.BucketRecyclerView;
 import com.bumptech.glide.Glide;
 
 import butterknife.BindView;
@@ -27,10 +28,12 @@ public class ActivityMain extends AppCompatActivity{
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.rv_drops)
-    RecyclerView mRecycler;
+    BucketRecyclerView mRecycler;
     RealmChangeListener mChangeListener;
     AdapterDrops mAdapter;
     Realm mRealm;
+    @BindView(R.id.empty_drops)
+    View mEmptyView;
     RealmResults<Drop> mResults;
 
     @Override
@@ -45,6 +48,8 @@ public class ActivityMain extends AppCompatActivity{
         mResults = mRealm.where(Drop.class).findAllAsync();
         mAdapter = new AdapterDrops(this,mResults);
         mRecycler.setAdapter(mAdapter);
+        mRecycler.hideIfEmpty(mToolbar);
+        mRecycler.showIfEmpty(mEmptyView);
 
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
