@@ -26,8 +26,6 @@ public class Drop extends RealmObject {
 
     public Drop(){
 
-
-
     }
 
     public String getWhat() {
