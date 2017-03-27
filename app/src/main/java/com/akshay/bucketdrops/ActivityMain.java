@@ -26,6 +26,8 @@ import com.akshay.bucketdrops.beans.Drop;
 import com.akshay.bucketdrops.widgets.BucketRecyclerView;
 import com.bumptech.glide.Glide;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.realm.Realm;
 import io.realm.RealmChangeListener;
 import io.realm.RealmResults;
@@ -34,14 +36,24 @@ import io.realm.Sort;
 
 public class ActivityMain extends AppCompatActivity {
 
-    private static final String TAG = "VIVZ";
+
+    @BindView(R.id.toolbar)
     Toolbar mToolbar;
+
+    @BindView(R.id.btn_add)
     Button mBtnAdd;
+
+    @BindView(R.id.rv_drops)
     BucketRecyclerView mRecycler;
+
     Realm mRealm;
     RealmResults<Drop> mResults;
+
+    @BindView(R.id.empty_drops)
     View mEmptyView;
+
     AdapterDrops mAdapter;
+
     private View.OnClickListener mBtnAddListener = new View.OnClickListener() {
 
         @Override
@@ -103,16 +115,16 @@ public class ActivityMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ButterKnife.bind(this);
+
         mRealm = Realm.getDefaultInstance();
-        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-        mBtnAdd = (Button) findViewById(R.id.btn_add);
         mBtnAdd.setOnClickListener(mBtnAddListener);
 
         int filterOption = AppBucketDrops.load(this);
         loadResults(filterOption);
-        mEmptyView = findViewById(R.id.empty_drops);
-        mRecycler = (BucketRecyclerView) findViewById(R.id.rv_drops);
+
         mRecycler.addItemDecoration(new Divider(this, LinearLayoutManager.VERTICAL));
         mRecycler.setItemAnimator(new DefaultItemAnimator());
         mRecycler.hideIfEmpty(mToolbar);
