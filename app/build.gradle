@@ -31,5 +31,7 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.android.support:recyclerview-v7:+'
     compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.github.halysongoncalves:pugnotification:1.8.1'
+
     testCompile 'junit:junit:4.12'
 }
