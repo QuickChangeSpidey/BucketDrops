@@ -52,7 +52,6 @@ public class AdapterDrops extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         mResults = results;
         mFilterOption = AppBucketDrops.load(mContext);
         notifyDataSetChanged();
-
     }
 
     @Override

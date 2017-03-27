@@ -36,7 +36,6 @@ import io.realm.Sort;
 
 public class ActivityMain extends AppCompatActivity {
 
-
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
@@ -58,7 +57,6 @@ public class ActivityMain extends AppCompatActivity {
     AdapterDrops mAdapter;
 
     private View.OnClickListener mBtnAddListener = new View.OnClickListener() {
-
         @Override
         public void onClick(View v) {
             showDialogAdd();
@@ -70,22 +68,18 @@ public class ActivityMain extends AppCompatActivity {
             showDialogAdd();
         }
     };
-
     private RealmChangeListener mChangeListener = new RealmChangeListener() {
         @Override
         public void onChange(Object element) {
             mAdapter.update(mResults);
-
         }
     };
-
     private MarkListener mMarkListener = new MarkListener() {
         @Override
         public void onMark(int position) {
             showDialogMark(position);
         }
     };
-
     private CompleteListener mCompleteListener = new CompleteListener() {
         @Override
         public void onComplete(int position) {
@@ -99,12 +93,10 @@ public class ActivityMain extends AppCompatActivity {
             loadResults(Filter.NONE);
         }
     };
-
     private void showDialogAdd() {
         DialogAdd dialog = new DialogAdd();
         dialog.show(getSupportFragmentManager(), "Add");
     }
-
     private void showDialogMark(int position) {
         DialogMark dialog = new DialogMark();
         Bundle bundle = new Bundle();
@@ -113,21 +105,16 @@ public class ActivityMain extends AppCompatActivity {
         dialog.setCompleteListener(mCompleteListener);
         dialog.show(getSupportFragmentManager(), "Mark");
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         ButterKnife.bind(this);
-
         mRealm = Realm.getDefaultInstance();
         setSupportActionBar(mToolbar);
         mBtnAdd.setOnClickListener(mBtnAddListener);
-
         int filterOption = AppBucketDrops.load(this);
         loadResults(filterOption);
-
         mRecycler.addItemDecoration(new Divider(this, LinearLayoutManager.VERTICAL));
         mRecycler.setItemAnimator(new DefaultItemAnimator());
         mRecycler.hideIfEmpty(mToolbar);
