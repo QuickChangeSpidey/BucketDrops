@@ -52,6 +52,9 @@ public class ActivityMain extends AppCompatActivity {
     @BindView(R.id.empty_drops)
     View mEmptyView;
 
+    @BindView(R.id.iv_background)
+    ImageView background;
+
     AdapterDrops mAdapter;
 
     private View.OnClickListener mBtnAddListener = new View.OnClickListener() {
@@ -213,7 +216,6 @@ public class ActivityMain extends AppCompatActivity {
     }
 
     private void initBackgroundImage() {
-        ImageView background = (ImageView) findViewById(R.id.iv_background);
         Glide.with(this)
                 .load(R.drawable.background)
                 .centerCrop()

@@ -32,7 +32,7 @@ public class AdapterDrops extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private LayoutInflater mInflater;
     private Realm mRealm;
     private RealmResults<Drop> mResults;
-    public static final String TAG = "VIVZ";
+    public static final String TAG = "Akshay!!";
     private AddListener mAddListener;
     private int mFilterOption;
     private Context mContext;

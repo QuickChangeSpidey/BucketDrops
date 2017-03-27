@@ -14,7 +14,7 @@ import com.akshay.bucketdrops.R;
 
 public class Divider extends RecyclerView.ItemDecoration {
 
-    public static final String TAG = "VIVZ";
+    public static final String TAG = "Akshay!!";
     private Drawable mDivider;
     private int mOrientation;
 

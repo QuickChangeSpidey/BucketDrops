@@ -22,7 +22,7 @@ import io.realm.RealmResults;
  * TODO: Customize class - update intent actions and extra parameters.
  */
 public class NotificationService extends IntentService {
-    public static final String TAG = "VIVZ";
+    public static final String TAG = "Akshay!!";
 
     public NotificationService() {
         super("NotificationService");

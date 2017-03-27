@@ -9,7 +9,7 @@ import com.akshay.bucketdrops.Extras.Util;
 
 
 public class BootReceiver extends BroadcastReceiver {
-    public static final String TAG="VIVZ";
+    public static final String TAG="Akshay!!";
     public BootReceiver() {
         Log.d(TAG, "BootReceiver: ");
     }

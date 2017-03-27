@@ -22,11 +22,6 @@ import com.akshay.bucketdrops.R;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-
-
-/**
- * Created by vivz on 10/01/16.
- */
 public class BucketPickerView extends LinearLayout implements View.OnTouchListener {
     public static final int LEFT = 0;
     public static final int TOP = 1;
@@ -38,7 +33,7 @@ public class BucketPickerView extends LinearLayout implements View.OnTouchListen
     private TextView mTextMonth;
     private TextView mTextYear;
     private SimpleDateFormat mFormatter;
-    private String TAG = "VIVZ";
+    private String TAG = "Akshay!!";
     private boolean mIncrement;
     private boolean mDecrement;
 
